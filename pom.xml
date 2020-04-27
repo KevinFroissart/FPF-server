@@ -3,7 +3,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>fr.ulille.iut.agile.skeleton</groupId>
+    <groupId>fr.ulille.iut.agile.groupe-9</groupId>
     <artifactId>server</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
