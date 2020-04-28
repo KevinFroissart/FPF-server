@@ -5,6 +5,6 @@ RUN apt-get update \
  && apt-get clean
 ADD . /app/
 WORKDIR /app/
-RUN . gradlew bootJar
+RUN ./gradlew bootJar
 EXPOSE 8080
 CMD java -jar /app/build/libs/server-0.0.1.jar
