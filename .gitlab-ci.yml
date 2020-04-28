@@ -11,7 +11,7 @@ test:
   stage: 🔍 test
   image: openjdk:8-jdk-buster
   script:
-    - gradlew test
+    - . gradlew test
   artifacts:
     reports:
       junit:
