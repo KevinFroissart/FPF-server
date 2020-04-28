@@ -17,7 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
-// @AutoConfigureMockMvc
+@AutoConfigureMockMvc
 public class ApiControllerTest {
 
     private final String helloMessage = "hello, world";
@@ -25,8 +25,8 @@ public class ApiControllerTest {
     @Autowired
     public ApiController controller;
 
-    // @Autowired
-    // public MockMvc mvc;
+    @Autowired
+    public MockMvc mvc;
 
     @Test
     public final void testContextLoad() {
@@ -38,12 +38,12 @@ public class ApiControllerTest {
         assertThat(controller.hello()).isEqualTo(helloMessage);
     }
 
-    /*@Test
+    @Test
     public final void testContextContent() throws Exception {
         mvc.perform(get("/api/v1")).andDo(print())
             .andExpect(status().isOk())
             .andExpect(content().string(containsString(helloMessage)));
-    }*/
+    }
 
 
 }
