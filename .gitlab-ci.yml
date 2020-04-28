@@ -3,20 +3,11 @@ stages:
   - 📦 build
   - 🐋 deploy
 
-cache:
-  paths:
-    - ./.m2/
-
 test:
   stage: 🔍 test
   image: openjdk:8-jdk-buster
   script:
-    - . gradlew test
-  artifacts:
-    reports:
-      junit:
-        - target/surefire-reports/*.xml
-        - target/failsafe-reports/*.xml
+    - ./gradlew test
 
 # sonar:
 #  stage: 🔍 test
