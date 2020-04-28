@@ -3,6 +3,18 @@ stages:
   - 📦 build
   - 🐋 deploy
 
+init:
+  stage: init
+  image: openjdk:8-jdk-buster
+  before_script:
+    - chmod +x ./gradlew
+  script:
+    - ./gradlew test
+  cache:
+    paths:
+      - .gradle
+    policy: push
+
 test:
   stage: 🔍 test
   image: openjdk:8-jdk-buster
@@ -10,7 +22,10 @@ test:
     - chmod +x ./gradlew
   script:
     - ./gradlew test
-
+  cache:
+    paths:
+      - .gradle
+    policy: pull
 # sonar:
 #  stage: 🔍 test
 #  image: openjdk:8-jdk-buster
