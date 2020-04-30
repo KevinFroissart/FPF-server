@@ -1,6 +1,7 @@
 README.md
-.git
-.gradle
+.git/
+.gradle/
+bdd/
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**

@@ -1,18 +1,16 @@
 version: "3"
 services:
   serverapp:
-    container_name: serverapp
-    image: serverapp
+    container_name: server
+    image: server
     build: ./
     ports:
       - "8080:8080"
     depends_on:
       - serverbdd
   serverbdd:
-    image: postgres
+    image: bdd
+    build: ./bdd
     ports:
       - "5432:5432"
-    environment:
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_USER=postgres
-      - POSTGRE_DB=db
+
