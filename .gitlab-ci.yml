@@ -28,9 +28,12 @@ build:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME .
     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
-
+  only:
+    - master
+    - dev
 deploy:
   stage: 🐋 deploy
   script:
     - curl -X POST -data=""  https://deliverous.com/api/v1/trigger/$DELIVEROUS_TRIGGER
-
+  only:
+    - master
