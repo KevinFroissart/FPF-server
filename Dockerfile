@@ -1,11 +1,9 @@
-FROM debian:buster
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update \
- && apt-get install -y openjdk-11-jdk maven \
- && apt-get clean
+FROM openjdk:8-alpine
 ADD . /app/
 WORKDIR /app/
-RUN mvn package -Dmaven.test.skip=true
-EXPOSE 8080
-CMD java -jar /app/target/server-1.0-SNAPSHOT.jar
 
+RUN chmod +x ./gradlew \
+    && ./gradlew bootJar
+
+EXPOSE 8080
+CMD ["java", "-jar", "/app/build/libs/server-0.0.1.jar"]
