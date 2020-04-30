@@ -3,13 +3,13 @@ stages:
   - 📦 build
   - 🐋 deploy
 
-# test:
-#   stage: 🔍 test
-#   image: openjdk:8-jdk-alpine
-#   before_script:
-#     - chmod +x ./gradlew
-#   script:
-#     - ./gradlew test
+ test:
+   stage: 🔍 test
+   image: openjdk:8-jdk-alpine
+   before_script:
+     - chmod +x ./gradlew
+   script:
+     - ./gradlew test
 
 # sonar:
 #  stage: 🔍 test
