@@ -40,7 +40,7 @@ public class ApiControllerTest {
 
     @Test
     public final void testContextContent() throws Exception {
-        mvc.perform(get("/api/v1")).andDo(print())
+        mvc.perform(get("/api/v1/myresource")).andDo(print())
             .andExpect(status().isOk())
             .andExpect(content().string(containsString(helloMessage)));
     }
