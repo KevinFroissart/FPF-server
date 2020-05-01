@@ -13,7 +13,7 @@ test:
   stage: 🔍 test
   image: openjdk:8-alpine
   before_script:
-    - psql -U postgres psql -d postgres -c "$(cat /bdd/init.sql)"
+    - psql -U postgres psql -d postgres -c "$(cat bdd/init.sql)"
     - chmod +x ./gradlew
   script:
     - ./gradlew test
