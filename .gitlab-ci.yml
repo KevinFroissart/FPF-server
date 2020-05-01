@@ -3,29 +3,20 @@ stages:
   - 📦 build
   - 🐋 deploy
 
-services:
-  - postgres:12.2-alpine
-
-variables:
-  POSTGRES_PASSWORD: "docker"
-
 test:
   stage: 🔍 test
+  services:
+    - name: postgres
+      alias: dbserver
+  variables:
+    POSTGRES_PASSWORD: docker
   image: openjdk:8-alpine
   before_script:
-    - apk add postgresql-client
-    - psql -h localhost -U postgres -W docker -c "$(cat bdd/init.sql)"
+    - apk add postgres-client
+    - psql -h dbserver -U postgres -W docker -c "$(cat bdd/init.sql)"
     - chmod +x ./gradlew
   script:
     - ./gradlew test
-
-# sonar:
-#  stage: 🔍 test
-#  image: openjdk:8-jdk-buster
-#  coverage: '/Total.*?([0-9]{1,3})%/'
-#  script:
-#    - mvn $MAVEN_OPTS test jacoco:report sonar:sonar
-#    - cat target/site/jacoco/index.html
 
 build:
   stage: 📦 build
@@ -39,6 +30,7 @@ build:
   only:
     - master
     - dev
+
 deploy:
   stage: 🐋 deploy
   script:
