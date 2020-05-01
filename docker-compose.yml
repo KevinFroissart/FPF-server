@@ -1,14 +1,14 @@
 version: "3"
 services:
-  serverapp:
+  server_app:
     container_name: server
     image: server
     build: ./
     ports:
       - "8080:8080"
     depends_on:
-      - serverbdd
-  serverbdd:
+      - postgres_server
+  postgres_server:
     image: bdd
     build: ./bdd
     ports:
