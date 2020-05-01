@@ -5,13 +5,11 @@ stages:
 
 test:
   stage: 🔍 test
-  image: openjdk:8-jdk-alpine
-  services:
-    - name: postgres
-      alias: postgres_server
+  image: postgres
   variables:
     POSTGRES_PASSWORD: docker
   before_script:
+    - apt-get install openjdk-8-jdk
     - psql -U postgres -d postgres -c $(cat bdd/init.sql)
     - chmod +x ./gradlew
   script:
