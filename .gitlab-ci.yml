@@ -3,15 +3,19 @@ stages:
   - 📦 build
   - 🐋 deploy
 
+services:
+  - postgres
+
+variables:
+  POSTGRES_DB: server
+  POSTGRES_USER: server
+  POSTGRES_PASSWORD: "docker"
+  POSTGRES_HOST_AUTH_METHOD: trust
+
 test:
   stage: 🔍 test
-  image: postgres
-  variables:
-    POSTGRES_PASSWORD: docker
+  image: openjdk:8-alpine
   before_script:
-    - apt-get update
-    - apt-get install -y openjdk-11-jdk
-    - psql -U postgres -d postgres -c "$(cat bdd/init.sql)"
     - chmod +x ./gradlew
   script:
     - ./gradlew test
