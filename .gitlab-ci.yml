@@ -13,7 +13,7 @@ test:
   stage: 🔍 test
   image: openjdk:8-alpine
   before_script:
-    - apt-get install -y postgresql-client libpq-dev
+    - apt install -y postgresql-client libpq-dev
     - psql -U postgres psql -d postgres -c "$(cat /bdd/init.sql)"
     - chmod +x ./gradlew
   script:
