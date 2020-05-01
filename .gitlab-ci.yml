@@ -11,7 +11,7 @@ test:
   before_script:
     - apt-get update
     - apt-get install -y openjdk-11-jdk
-    - psql -U postgres -d postgres -c $(cat bdd/init.sql)
+    - psql -U postgres -d postgres -c "$(cat bdd/init.sql)"
     - chmod +x ./gradlew
   script:
     - ./gradlew test
