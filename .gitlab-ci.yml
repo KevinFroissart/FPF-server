@@ -12,7 +12,7 @@ test:
     POSTGRES_PASSWORD: docker
   image: openjdk:8-alpine
   before_script:
-    - apk add postgres-client
+    - apk add postgresql-client
     - psql -h dbserver -U postgres -W docker -c "$(cat bdd/init.sql)"
     - chmod +x ./gradlew
   script:
