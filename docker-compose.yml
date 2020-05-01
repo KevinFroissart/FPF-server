@@ -1,16 +1,22 @@
 version: "3"
 services:
-  server_app:
+  appserver:
     container_name: server
     image: server
     build: ./
     ports:
       - "8080:8080"
     depends_on:
-      - postgres_server
-  postgres_server:
-    image: bdd
-    build: ./bdd
+      - postgresserver
+    networks:
+      - database
+  postgresserver:
+    container_name: dbserver
+    image: postgres
+    build: database
     ports:
       - "5432:5432"
-
+    networks:
+      - database
+networks:
+  database:
