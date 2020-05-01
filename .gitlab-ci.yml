@@ -4,7 +4,7 @@ stages:
   - 🐋 deploy
 
 services:
-  - postgres
+  - postgres:12.2-alpine
 
 variables:
   POSTGRES_DB: server
