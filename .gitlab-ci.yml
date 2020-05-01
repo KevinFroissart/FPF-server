@@ -7,15 +7,14 @@ services:
   - postgres:12.2-alpine
 
 variables:
-  POSTGRES_DB: server
-  POSTGRES_USER: server
   POSTGRES_PASSWORD: "docker"
-  POSTGRES_HOST_AUTH_METHOD: trust
 
 test:
   stage: 🔍 test
   image: openjdk:8-alpine
   before_script:
+    - apt-get install -y postgresql-client libpq-dev
+    - psql -U postgres psql -d postgres -c "$(cat /bdd/init.sql)"
     - chmod +x ./gradlew
   script:
     - ./gradlew test
