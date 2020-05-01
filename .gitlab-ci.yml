@@ -10,7 +10,7 @@ test:
     POSTGRES_PASSWORD: docker
   before_script:
     - apt-get update
-    - apt-get install openjdk-8-jdk
+    - apt-get install openjdk-11-jdk
     - psql -U postgres -d postgres -c $(cat bdd/init.sql)
     - chmod +x ./gradlew
   script:
