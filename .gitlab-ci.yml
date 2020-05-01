@@ -6,6 +6,8 @@ stages:
 test:
   stage: 🔍 test
   image: openjdk:8-jdk-alpine
+  services:
+    - postgres
   before_script:
     - chmod +x ./gradlew
   script:
