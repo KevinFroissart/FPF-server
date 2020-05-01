@@ -9,7 +9,7 @@ test:
   services:
     - name: postgres
       alias: postgres_server
-  environment:
+  variables:
     POSTGRES_PASSWORD: docker
   before_script:
     - psql -U postgres -d postgres -c $(cat bdd/init.sql)
