@@ -1,0 +1,1 @@
+INSERT INTO card_shape VALUES (1, 'Oiseau'), (2, 'Coeur'), (3, 'Ewok'), (4, 'Patate'), (5, 'Autre');
