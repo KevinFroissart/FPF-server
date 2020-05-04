@@ -1,0 +1,22 @@
+version: "3"
+services:
+  appserver:
+    container_name: server
+    image: server
+    build: ./
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgresserver
+    networks:
+      - database
+  postgresserver:
+    container_name: dbserver
+    image: postgres
+    build: database
+    ports:
+      - "5432:5432"
+    networks:
+      - database
+networks:
+  database:
