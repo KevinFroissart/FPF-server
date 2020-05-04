@@ -9,16 +9,13 @@ test:
     - name: postgres
       alias: dbserver
   variables:
+    POSTGRES_DB: server
+    POSTGRES_USER: server
     POSTGRES_PASSWORD: docker
-    PGPASSWORD: ${POSTGRES_PASSWORD}
-    POSTGRES_DB: postgres
-    POSTGRES_HOST: postgres
-    POSTGRES_PORT: 5432
-    POSTGRES_USER: postgres
+    POSTGRES_HOST_AUTH_METHOD: trust
+
   image: openjdk:8-alpine
   before_script:
-    - apk add postgresql-client
-    - psql -h ${POSTGRES_HOST} -U ${POSTGRES_USER} -c "$(cat database/init.sql)"
     - chmod +x ./gradlew
   script:
     - ./gradlew test
