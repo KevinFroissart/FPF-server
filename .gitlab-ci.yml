@@ -18,7 +18,7 @@ test:
   image: openjdk:8-alpine
   before_script:
     - apk add postgresql-client
-    - psql -c "$(cat database/init.sql)"
+    - psql -h ${POSTGRES_HOST} -U ${POSTGRES_USER} -c "$(cat database/init.sql)"
     - chmod +x ./gradlew
   script:
     - ./gradlew test
