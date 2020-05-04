@@ -11,10 +11,14 @@ test:
   variables:
     POSTGRES_PASSWORD: docker
     PGPASSWORD: ${POSTGRES_PASSWORD}
+    POSTGRES_DB: postgres
+    POSTGRES_HOST: postgres
+    POSTGRES_PORT: 5432
+    POSTGRES_USER: postgres
   image: openjdk:8-alpine
   before_script:
     - apk add postgresql-client
-    - psql -h jdbc:postgresql://dbserver -U postgres -c "$(cat database/init.sql)"
+    - psql -c "$(cat database/init.sql)"
     - chmod +x ./gradlew
   script:
     - ./gradlew test
