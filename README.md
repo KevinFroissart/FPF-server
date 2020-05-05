@@ -9,8 +9,8 @@
 # Server
 
 ##Lancement du docker
-Pour démarer le docker:
-Executez Docker Quickstart Terminal, rendez vous à la racine du projet et executez la commande suivante:
+Pour démarer le docker:  
+Executez Docker Quickstart Terminal, rendez vous à la racine du projet et executez la commande suivante:  
 ```docker-compose up```
 
 ##Lancement du serveur
