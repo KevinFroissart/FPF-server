@@ -1,13 +1,10 @@
 # Prérequis
 
-## Docker Windows 10 pro :
-[Docker](https://docs.docker.com/docker-for-windows/install/)
+[Docker Windows 10 pro](https://docs.docker.com/docker-for-windows/install/)
 
-## Docker Windows 10 :
-[Docker ToolBox](https://docs.docker.com/toolbox/toolbox_install_windows/)
+[Docker Windows 10 / macOS](https://docs.docker.com/toolbox/toolbox_install_windows/)
 
-## Docker Linux :
-[Docker](https://docs.docker.com/engine/install/)
+[Docker Linux](https://docs.docker.com/engine/install/)
 
 # Server
 
