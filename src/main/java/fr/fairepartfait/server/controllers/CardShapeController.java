@@ -12,12 +12,12 @@ public class CardShapeController {
     @Autowired
     private CardShapeRepository cardShapeRepository;
 
-    @GetMapping("cardshapes")
+    @GetMapping("/cardshapes")
     public @ResponseBody Iterable<CardShape> getCardShapes() {
         return cardShapeRepository.findAll();
     }
 
-    @GetMapping("cardshapes/{id}")
+    @GetMapping("/cardshapes/{id}")
     public @ResponseBody CardShape getCardShapeById(@PathVariable int id) {
         return cardShapeRepository.existsById(id) ? cardShapeRepository.findById(id).get() : null;
     }
