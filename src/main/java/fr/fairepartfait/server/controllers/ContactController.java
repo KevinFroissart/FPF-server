@@ -24,10 +24,8 @@ public class ContactController implements EmailService {
     public void sendSimpleMessage(String name, String email, String phone, String text) {
         SimpleMailMessage message = new SimpleMailMessage(); 
         message.setTo("faire-part-fait@outlook.fr"); 
-        message.setSubject("Faire-part-Fait: nouveau message); 
+        message.setSubject("Faire-part-Fait: nouveau message"); 
         message.setText("Nom: " + name  + "\nMail: " + email + "\nTel: " + phone + "\n\nMessage: " + text);
         emailSender.send(message);
     }
-    
-    //code trouvé ici : https://www.baeldung.com/spring-email
 }
