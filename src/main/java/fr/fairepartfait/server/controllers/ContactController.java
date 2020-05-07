@@ -14,7 +14,7 @@ public class ContactController {
     @Autowired
     public JavaMailSender emailSender;
  
-    @GetMapping("contact/query")
+    @GetMapping("/api/contact/query")
     public void messageProcess(@RequestParam String name, @RequestParam String email, @RequestParam String phone, @RequestParam String message) {
     	sendSimpleMessage(name, email, phone, message);
     }
