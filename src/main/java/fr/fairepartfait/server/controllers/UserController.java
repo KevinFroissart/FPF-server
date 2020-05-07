@@ -12,22 +12,22 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/users")
+    @GetMapping("/api/users")
     public @ResponseBody Iterable<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/api/users/{id}")
     public @ResponseBody User getUserById(@PathVariable int id) {
         return userRepository.existsById(id) ? userRepository.findById(id).get() : null;
     }
 
-    @PutMapping("/users/create")
+    @PutMapping("/api/users/create")
     public @ResponseBody User createUser(@RequestBody User user) {
         return userRepository.save(user);
     }
 
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/api/users/{id}")
     public @ResponseBody boolean deleteUserById(@PathVariable int id) {
         if (userRepository.existsById(id)) {
             userRepository.deleteById(id);

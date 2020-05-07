@@ -12,17 +12,12 @@ public class CardShapeController {
     @Autowired
     private CardShapeRepository cardShapeRepository;
 
-    @GetMapping("/test")
-    public @ResponseBody  String test() {
-        return "test is ok";
-    }
-
-    @GetMapping("/cardshapes")
+    @GetMapping("/api/cardshapes")
     public @ResponseBody Iterable<CardShape> getCardShapes() {
         return cardShapeRepository.findAll();
     }
 
-    @GetMapping("/cardshapes/{id}")
+    @GetMapping("/api/cardshapes/{id}")
     public @ResponseBody CardShape getCardShapeById(@PathVariable int id) {
         return cardShapeRepository.existsById(id) ? cardShapeRepository.findById(id).get() : null;
     }
