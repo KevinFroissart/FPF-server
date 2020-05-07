@@ -12,6 +12,11 @@ public class CardShapeController {
     @Autowired
     private CardShapeRepository cardShapeRepository;
 
+    @GetMapping("/test")
+    public @ResponseBody  String test() {
+        return "test is ok";
+    }
+
     @GetMapping("/cardshapes")
     public @ResponseBody Iterable<CardShape> getCardShapes() {
         return cardShapeRepository.findAll();
