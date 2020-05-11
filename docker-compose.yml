@@ -14,7 +14,7 @@ services:
     container_name: dbserver
     image: postgres
     build: database
-    environement:
+    environment:
         - POSTGRES_DB=server
         - POSTGRES_USER=server
         - POSTGRES_PASSWORD=docker
