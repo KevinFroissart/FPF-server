@@ -13,7 +13,6 @@ services:
   postgresserver:
     container_name: dbserver
     image: postgres
-    build: database
     environment:
         - POSTGRES_DB=server
         - POSTGRES_USER=server
