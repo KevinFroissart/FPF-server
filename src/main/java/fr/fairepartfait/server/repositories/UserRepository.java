@@ -5,4 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RestResource;
 
 @RestResource(exported = false)
-public interface UserRepository extends CrudRepository<User, Integer> { }
+public interface UserRepository extends CrudRepository<User, Integer> {
+}

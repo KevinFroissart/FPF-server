@@ -5,7 +5,6 @@ import fr.fairepartfait.server.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "*")
 @RestController
 public class UserController {
 
@@ -13,27 +12,18 @@ public class UserController {
     private UserRepository userRepository;
 
     @GetMapping("/api/users")
-    public @ResponseBody Iterable<User> getAllUsers() {
+    public @ResponseBody Iterable<User> getUsers() {
         return userRepository.findAll();
     }
 
     @GetMapping("/api/users/{id}")
     public @ResponseBody User getUserById(@PathVariable int id) {
-        return userRepository.existsById(id) ? userRepository.findById(id).get() : null;
+        return userRepository.findById(id).get();
     }
 
     @PutMapping("/api/users/create")
     public @ResponseBody User createUser(@RequestBody User user) {
         return userRepository.save(user);
-    }
-
-    @DeleteMapping("/api/users/{id}")
-    public @ResponseBody boolean deleteUserById(@PathVariable int id) {
-        if (userRepository.existsById(id)) {
-            userRepository.deleteById(id);
-            return true;
-        }
-        return false;
     }
 
 
