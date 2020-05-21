@@ -18,7 +18,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-mail:2.2.6.RELEASE'
 	implementation 'javax.ws.rs:javax.ws.rs-api:2.1.1'
+	compile group: 'commons-io', name: 'commons-io', version: '2.6'
+
 	runtimeOnly 'org.postgresql:postgresql'
+	
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
